@@ -13,7 +13,10 @@ const {body}=require('express-validator');
     .isEmail().withMessage('Invalid email formate'),
     body("password")
     .notEmpty().withMessage("Password is required")
-    .isLength({ min: 6 }).withMessage("Password must be at least 6 characters")
+    .isLength({ min: 6 }).withMessage("Password must be at least 6 characters"),
+    body("role")
+    .optional()
+    .isIn(["user", "admin"]).withMessage("Role must be either 'user' or 'admin'")
 ]
 
 module.exports={registerValidator}
