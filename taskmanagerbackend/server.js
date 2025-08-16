@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const rateLimit = require("express-rate-limit");
 const connectDb = require("./config/db");
 const userRouter = require("./router/userRouter");
+const categoryRouter = require("./router/categoryRouter");
 const { errorHandler } = require("./middlewares/errorHandler"); // centralized error handler
 
 const app = express();
@@ -38,6 +39,7 @@ app.use(limiter);
 
 // ===== Routes =====
 app.use("/api/users", userRouter);
+app.use("/api/categories",categoryRouter);
 
 // ===== Test Root Route =====
 app.get("/", (req, res) => {
