@@ -38,7 +38,7 @@ const getCategories = async (req, res, next) => {
       .sort(sortObj)
     //   .sort({ [sortBy]: order === "asc" ? 1 : -1 })
       .skip((page - 1) * limit)
-      .limit(Number(limit)).lean();
+      .limit(Number(limit));
       
 
     res.status(200).json({ success: true, total, page: Number(page), limit: Number(limit), categories });
